@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./pro logo.png" type="image/x-icon">
+    <title>GreenRoots</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f6d5;
+            color: #17352a
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #f7f6d5;
+            border-bottom: 1px solid #ddd
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 16px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #207346
+        }
+
+        nav a {
+            margin: 0 8px;
+            text-decoration: none;
+            color: #365347;
+            font-weight: bold;
+            font-size: 14px
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 22px;
+            display: grid;
+            grid-template-columns: 1.4fr .8fr;
+            gap: 50px;
+            align-items: center
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.05;
+            margin: 15px 0
+        }
+
+        .hero h1 span {
+            color: #25804c
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #607269
+        }
+
+        .pill,
+        .eyebrow {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            color: #2c8757
+        }
+
+        .btn {
+            display: inline-block;
+            background: #217a48;
+            color: white;
+            border: 0;
+            border-radius: 10px;
+            padding: 13px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 8px 5px 8px 0
+        }
+
+        .btn.secondary {
+            background: #e5f2e9;
+            color: #246a43
+        }
+
+        .hero-card {
+            background: #e7f4ea;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center
+        }
+
+        .tree {
+            font-size: 110px
+        }
+
+        .stats {
+            max-width: 1050px;
+            margin: 0 auto 50px;
+            background: #fcfcfc;
+            border: 1px solid #dfebe3;
+            border-radius: 20px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr)
+        }
+
+        .stat {
+            text-align: center
+        }
+
+        .stat b {
+            display: block;
+            font-size: 30px;
+            color: #207346
+        }
+
+        .stat span {
+            font-size: 13px;
+            color: #718278
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 65px 22px
+        }
+
+        .green {
+            max-width: none;
+            background: #eef8f1;
+            padding-left: max(22px, calc((100% - 1100px)/2));
+            padding-right: max(22px, calc((100% - 1100px)/2))
+        }
+
+        h2 {
+            font-size: 35px;
+            margin-top: 5px
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid #dfebe3;
+            box-shadow: 0 8px 25px #0000000d
+        }
+
+        .card .emoji {
+            font-size: 55px
+        }
+
+        .tag {
+            background: #e8f5ec;
+            color: #28764b;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold
+        }
+
+        .card p {
+            color: #65766d;
+            line-height: 1.6
+        }
+
+        .search {
+            padding: 12px;
+            border: 1px solid #ccdcd2;
+            border-radius: 10px;
+            width: 230px
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 30px
+        }
+
+        .form {
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 13px
+        }
+
+        input,
+        select,
+        textarea {
+            display: block;
+            width: 100%;
+            margin-top: 7px;
+            padding: 13px;
+            border: 1px solid #d2e0d7;
+            border-radius: 10px;
+            font: inherit;
+            background: white
+        }
+
+        textarea {
+            min-height: 100px
+        }
+
+        .full {
+            grid-column: 1/-1
+        }
+
+        .certificate {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            background: white;
+            padding: 45px;
+            border: 7px double #4d9b6b;
+            border-radius: 15px
+        }
+
+        .certificate h1 {
+            color: #217a48
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .entries {
+            margin-top: 25px;
+            display: grid;
+            gap: 12px
+        }
+
+        .entry,
+        .message {
+            background: white;
+            border: 1px solid #dce9e1;
+            border-radius: 12px;
+            padding: 15px
+        }
+
+        .growth-box {
+            max-width: 800px;
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            border: 1px solid #dce9e1
+        }
+
+        .meter {
+            height: 18px;
+            background: #e0ece5;
+            border-radius: 20px;
+            overflow: hidden
+        }
+
+        #bar {
+            height: 100%;
+            width: 29%;
+            background: #2b8a52
+        }
+
+        .growth-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0
+        }
+
+        .growth-row b {
+            font-size: 28px;
+            color: #207346
+        }
+
+        footer {
+            text-align: center;
+            background: #17352a;
+            color: #dcebe1;
+            padding: 35px;
+            line-height: 1.8
+        }
+
+        @media(max-width:800px) {
+            nav {
+                flex-direction: column;
+                gap: 12px
+            }
+
+            nav a {
+                font-size: 12px;
+                margin: 3px
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 45px
+            }
+
+            .hero h1 {
+                font-size: 42px
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .cards {
+                grid-template-columns: 1fr
+            }
+
+            .form {
+                grid-template-columns: 1fr
+            }
+
+            .full {
+                grid-column: auto
+            }
+
+            .title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px
+            }
+
+            .search {
+                width: 100%
+            }
+        }
+
+        @media print {
+
+            header,
+            footer,
+            .btn {
+                display: none
+            }
+
+            section:not(#certificateSection) {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <img src="https://tse4.mm.bing.net/th/id/OIP.w25O7awOo1dS_8yfyzdaTgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                height="100" width="200" style="object-fit: cover;">
+            <div>
+                <a href="#home">Home</a>
+                <a href="#trees">Trees</a>
+                <a href="#adopt">Adopt</a>
+                <a href="#journal">Journal</a>
+                <a href="#growth">Growth</a>
+                <a href="#report">Report</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <div>
+            <span class="pill">COMMUNITY TREE PLANTATION & URBAN FOREST</span>
+
+            <h1>
+                Plant today.<br>
+                <span>Grow a greener tomorrow.</span>
+            </h1>
+
+            <p>
+                Adopt a tree, track its growth, maintain a care journal
+                and help build healthier urban forests.
+            </p>
+
+            <a href="#adopt" class="btn">🌱 Adopt a Tree</a>
+            <a href="#trees" class="btn secondary">Explore Trees</a>
+        </div>
+
+        <div class="hero-card">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.R6RjVWN1vX-DIJTE21o_-wHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                height="200" width="200" style="object-fit: cover; border-radius: 15px;">
+            <h3>GreenRoots Mission</h3>
+            <p>
+                Every adopted tree becomes part of a community-led
+                urban forest.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <div class="stats">
+
+        <div class="stat">
+            <b id="treesPlanted">128</b>
+            <span>Trees Planted</span>
+        </div>
+
+        <div class="stat">
+            <b id="adoptions">74</b>
+            <span>Adoptions</span>
+        </div>
+
+        <div class="stat">
+            <b>312</b>
+            <span>Volunteer Hours</span>
+        </div>
+
+        <div class="stat">
+            <b>96%</b>
+            <span>Healthy Trees</span>
+        </div>
+
+    </div>
+
+
+    <!-- TREES -->
+    <section id="trees">
+
+        <div class="title">
+            <div>
+                <span class="eyebrow">TREE CATALOG</span>
+                <h2>Choose Your Tree</h2>
+            </div>
+
+            <input class="search" id="search" placeholder="Search species...">
+        </div>
+
+        <div class="cards" id="treeCards"></div>
+
+    </section>
+
+
+    <!-- ADOPTION -->
+    <section id="adopt" class="green">
+
+        <span class="eyebrow">ADOPT A TREE</span>
+        <h2>Become a Tree Guardian</h2>
+
+        <form class="form" id="adoptForm">
+
+            <label>
+                Full Name
+                <input id="name" required placeholder="Enter your name">
+            </label>
+
+            <label>
+                Email
+                <input id="email" type="email" required placeholder="you@example.com">
+            </label>
+
+            <label>
+                Phone
+                <input id="phone" required placeholder="+91">
+            </label>
+
+            <label>
+                Tree Species
+                <select id="species">
+                    <option>Neem</option>
+                    <option>Banyan</option>
+                    <option>Gulmohar</option>
+                </select>
+            </label>
+
+            <label>
+                Location
+                <input id="location" required placeholder="Park / locality">
+            </label>
+
+            <label>
+                Plantation Date
+                <input id="date" type="date" required>
+            </label>
+
+            <button class="btn full" type="submit">
+                🌱 Submit Adoption
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- CERTIFICATE -->
+    <section id="certificateSection" class="hidden">
+
+        <div class="certificate">
+
+            <div style="font-size:55px">🌿</div>
+
+            <h2>Tree Adoption Certificate</h2>
+
+            <p>This certificate is proudly presented to</p>
+
+            <h1 id="certName"></h1>
+
+            <p>
+                for adopting a <b id="certSpecies"></b> tree
+                at <b id="certLocation"></b>.
+            </p>
+
+            <p>
+                Certificate ID:
+                <strong id="certId"></strong>
+            </p>
+
+            <button class="btn" onclick="window.print()">
+                🖨️ Print Certificate
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOURNAL -->
+    <section id="journal">
+
+        <span class="eyebrow">CARE JOURNAL</span>
+        <h2>Weekly Tree Care</h2>
+
+        <form class="form" id="journalForm">
+
+            <label>
+                Tree / Species
+                <input id="journalTree" required placeholder="Neem #GR104">
+            </label>
+
+            <label>
+                Date
+                <input id="journalDate" type="date" required>
+            </label>
+
+            <label>
+                Activity
+
+                <select id="activity">
+                    <option>Watering</option>
+                    <option>Fertilizing</option>
+                    <option>Weeding</option>
+                    <option>Mulching</option>
+                    <option>Inspection</option>
+                </select>
+
+            </label>
+
+            <label>
+                Notes
+                <textarea id="notes" placeholder="Write your notes..."></textarea>
+            </label>
+
+            <button class="btn full">
+                Add Journal Entry
+            </button>
+
+        </form>
+
+        <div class="entries" id="entries"></div>
+
+    </section>
+
+
+    <!-- GROWTH -->
+    <section id="growth" class="green">
+
+        <span class="eyebrow">GROWTH TRACKER</span>
+        <h2>Measure Tree Progress</h2>
+
+        <div class="growth-box">
+
+            <div class="meter">
+                <div id="bar"></div>
+            </div>
+
+            <div class="growth-row">
+                <b id="heightText">145 cm</b>
+                <span>Current Height</span>
+            </div>
+
+            <input id="height" type="range" min="10" max="500" value="145">
+
+            <br>
+
+            <button class="btn" onclick="saveHeight()">
+                Save Height
+            </button>
+
+            <p id="saved"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- REPORT -->
+    <section id="report">
+
+        <span class="eyebrow">TREE HEALTH</span>
+        <h2>Report a Tree Issue</h2>
+
+        <form class="form" id="reportForm">
+
+            <label>
+                Tree ID
+                <input id="treeId" required placeholder="GR104">
+            </label>
+
+            <label>
+                Health Status
+
+                <select id="health">
+                    <option>Healthy</option>
+                    <option>Needs Attention</option>
+                    <option>Critical</option>
+                </select>
+
+            </label>
+
+            <label class="full">
+                Issue / Observation
+                <textarea id="issue" required placeholder="Describe the tree condition..."></textarea>
+            </label>
+
+            <button class="btn full">
+                🚨 Submit Report
+            </button>
+
+        </form>
+
+        <div class="message" id="reportMessage"></div>
+
+    </section>
+
+
+    <footer>
+
+        🌳 <strong>GreenRoots</strong><br>
+
+        Community Tree Plantation Adoption &
+        Urban Forest Growth System
+
+        <br><br>
+
+        team name • K3P26WJ
+
+    </footer>
+
+
+    <script>
+
+        /* TREE DATA */
+
+        const treeData = [
+
+            {
+                name: "Neem",
+                emoji: "🌿",
+                tag: "Air Purifier",
+                description:
+                    "Hardy native tree with medicinal value and excellent air-purifying properties."
+            },
+
+            {
+                name: "Banyan",
+                emoji: "🌳",
+                tag: "Heritage Tree",
+                description:
+                    "Long-lived shade tree that supports birds, insects and urban biodiversity."
+            },
+
+            {
+                name: "Gulmohar",
+                emoji: "🌺",
+                tag: "Flowering Tree",
+                description:
+                    "Beautiful flowering tree that adds shade, colour and ecological value to cities."
+            }
+
+        ];
+
+
+        /* SHOW TREES */
+
+        const treeCards =
+            document.getElementById("treeCards");
+
+        function showTrees(searchText = "") {
+
+            treeCards.innerHTML = "";
+
+            treeData
+                .filter(tree =>
+                    tree.name.toLowerCase()
+                        .includes(searchText.toLowerCase())
+                )
+                .forEach(tree => {
+
+                    treeCards.innerHTML += `
+
+<div class="card">
+
+<div class="emoji">
+${tree.emoji}
+</div>
+
+<span class="tag">
+${tree.tag}
+</span>
+
+<h3>${tree.name}</h3>
+
+<p>${tree.description}</p>
+
+<button
+class="btn"
+onclick="chooseTree('${tree.name}')"
+>
+Adopt ${tree.name}
+</button>
+
+</div>
+
+`;
+
+                });
+
+        }
+
+        showTrees();
+
+
+        /* SEARCH */
+
+        document
+            .getElementById("search")
+            .addEventListener("input", function () {
+
+                showTrees(this.value);
+
+            });
+
+
+        /* CHOOSE TREE */
+
+        function chooseTree(name) {
+
+            document.getElementById("species").value = name;
+
+            document
+                .getElementById("adopt")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        /* DATE */
+
+        const today =
+            new Date()
+                .toISOString()
+                .substring(0, 10);
+
+        document.getElementById("date").value = today;
+        document.getElementById("journalDate").value = today;
+
+
+        /* ADOPTION */
+
+        document
+            .getElementById("adoptForm")
+            .addEventListener("submit", function (e) {
+
+                e.preventDefault();
+
+                const name =
+                    document.getElementById("name").value;
+
+                const species =
+                    document.getElementById("species").value;
+
+                const location =
+                    document.getElementById("location").value;
+
+
+                /* CERTIFICATE */
+
+                document.getElementById("certName")
+                    .innerText = name;
+
+                document.getElementById("certSpecies")
+                    .innerText = species;
+
+                document.getElementById("certLocation")
+                    .innerText = location;
+
+                document.getElementById("certId")
+                    .innerText =
+                    "GR-" + Math.floor(
+                        100000 + Math.random() * 900000
+                    );
+
+
+                /* SHOW CERTIFICATE */
+
+                document
+                    .getElementById("certificateSection")
+                    .classList.remove("hidden");
+
+
+                /* UPDATE COUNT */
+
+                let count =
+                    Number(
+                        document.getElementById("adoptions")
+                            .innerText
+                    );
+
+                document.getElementById("adoptions")
+                    .innerText = count + 1;
+
+
+                document
+                    .getElementById("certificateSection")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+            });
+
+
+        /* JOURNAL */
+
+        let journal =
+            JSON.parse(
+                localStorage.getItem("journal") || "[]"
+            );
+
+        function showJournal() {
+
+            const entries =
+                document.getElementById("entries");
+
+            if (journal.length === 0) {
+
+                entries.innerHTML =
+                    '<div class="entry">No journal entries yet.</div>';
+
+                return;
+
+            }
+
+            entries.innerHTML = "";
+
+            journal.slice().reverse().forEach(item => {
+
+                entries.innerHTML += `
+
+<div class="entry">
+
+<strong>🌱 ${item.tree}</strong>
+— ${item.activity}
+
+<br>
+
+<small>${item.date}</small>
+
+<br>
+
+${item.notes || "Care completed."}
+
+</div>
+
+`;
+
+            });
+
+        }
+
+        showJournal();
+
+
+        /* ADD JOURNAL ENTRY */
+
+        document
+            .getElementById("journalForm")
+            .addEventListener("submit", function (e) {
+
+                e.preventDefault();
+
+                journal.push({
+
+                    tree:
+                        document.getElementById("journalTree").value,
+
+                    date:
+                        document.getElementById("journalDate").value,
+
+                    activity:
+                        document.getElementById("activity").value,
+
+                    notes:
+                        document.getElementById("notes").value
+
+                });
+
+
+                localStorage.setItem(
+                    "journal",
+                    JSON.stringify(journal)
+                );
+
+                this.reset();
+
+                document.getElementById("journalDate").value = today;
+
+                showJournal();
+
+                alert("🌱 Journal entry added successfully!");
+
+            });
+
+
+        /* GROWTH TRACKER */
+
+        const height =
+            document.getElementById("height");
+
+        const heightText =
+            document.getElementById("heightText");
+
+        const bar =
+            document.getElementById("bar");
+
+
+        function updateHeight() {
+
+            heightText.innerText =
+                height.value + " cm";
+
+            bar.style.width =
+                (height.value / 5) + "%";
+
+        }
+
+        height.addEventListener(
+            "input",
+            updateHeight
+        );
+
+        updateHeight();
+
+
+        /* SAVE HEIGHT */
+
+        function saveHeight() {
+
+            localStorage.setItem(
+                "treeHeight",
+                height.value
+            );
+
+            document.getElementById("saved")
+                .innerText =
+                "✓ Tree growth saved successfully!";
+
+        }
+
+
+        /* LOAD HEIGHT */
+
+        const savedHeight =
+            localStorage.getItem("treeHeight");
+
+        if (savedHeight) {
+
+            height.value = savedHeight;
+
+            updateHeight();
+
+        }
+
+
+        /* REPORT */
+
+        document
+            .getElementById("reportForm")
+            .addEventListener("submit", function (e) {
+
+                e.preventDefault();
+
+                document.getElementById("reportMessage")
+                    .innerHTML =
+                    "✅ <strong>Report submitted successfully!</strong><br>" +
+                    "A volunteer coordinator can review the tree condition.";
+
+                this.reset();
+
+            });
+
+
+    </script>
+
+</body>
+
+</html>
+```
